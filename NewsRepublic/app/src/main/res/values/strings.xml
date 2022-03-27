@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">News Republic</string>
+    <string name="sport">Sport</string>
+    <string name="business">Business</string>
+    <string name="tech">Tech</string>
+    <string name="health">Health</string>
+    <string name="education">Education</string>
+    <string name="stock">Stock</string>
+    <string name="all">All</string>
+    <string name="saved">Saved</string>
 </resources>
