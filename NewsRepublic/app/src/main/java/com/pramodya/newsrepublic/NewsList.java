@@ -28,5 +28,31 @@ public class NewsList extends AppCompatActivity {
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
+    public class DownloadTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+            String result = "";
+            URL url;
+            HttpURLConnection urlConnection = null;
+            try {
 
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return "";
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            String titleLink = "";
+            JSONObject jsonObject = null;
+            JSONObject articleObject = null;
+            int numberOfTopNews;
+            try {
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
