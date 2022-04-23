@@ -24,9 +24,9 @@ import java.util.ArrayList;
 public class NewsList extends AppCompatActivity {
     ListView listView;
     String category;
-    static ArrayList<String> newsTitles = new ArrayList<>();
     static ArrayList<News> newsList = new ArrayList<>();
-    ArrayAdapter<String> adapter;
+    static ArrayList<String> newsTitleList = new ArrayList<>();
+    ArrayAdapter newsArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,22 +34,23 @@ public class NewsList extends AppCompatActivity {
 
         setContentView(R.layout.activity_news_list);
         listView = findViewById(R.id.newsList);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, newsTitles);
-        listView.setAdapter(adapter);
-        newsTitles = new ArrayList<>();
+        newsArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, newsTitleList);
+
+        listView.setAdapter(newsArrayAdapter);
         newsList = new ArrayList<>();
+        newsTitleList = new ArrayList<>();
 
         Bundle bundle = getIntent().getExtras();
         category = bundle.getString("title");
 
         if (category.equals("all")) {
             DownloadTask downloadTask = new DownloadTask();
-            downloadTask.execute("https://gnews.io/api/v4/top-headlines?token=5de21de784eb663d796d65faa3472853");
+            downloadTask.execute("https://gnews.io/api/v4/top-headlines?token=ded9ce1073a96a6926d7946c63313c26");
         } else if (category.equals("saved")) {
 
         } else {
             DownloadTask downloadTask = new DownloadTask();
-            String _url = "https://gnews.io/api/v4/top-headlines?q=new&max=10&topic=" + category + "&token=5de21de784eb663d796d65faa3472853";
+            String _url = "https://gnews.io/api/v4/top-headlines?q=new&max=10&topic=" + category + "&token=ded9ce1073a96a6926d7946c63313c26";
             Log.i("URL", "onCreate: " + _url);
             downloadTask.execute(_url);
         }
@@ -109,13 +110,12 @@ public class NewsList extends AppCompatActivity {
                             String content = articleObject.getString("content");
                             String image = articleObject.getString("image");
 
-                            newsTitles.add(title);
-
                             News news = new News(title, description, content, image);
                             newsList.add(news);
+                            newsTitleList.add(title);
                         }
                     }
-                    adapter.notifyDataSetChanged();
+                    newsArrayAdapter.notifyDataSetChanged();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
