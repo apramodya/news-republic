@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsRepublic">
         <activity
+            android:name=".NewsDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewsList"
             android:exported="false" />
         <activity
