@@ -1,10 +1,13 @@
 package com.pramodya.newsrepublic;
+
 import java.io.Serializable;
+
 public class News implements Serializable {
     String title;
     String description;
     String content;
     String image;
+
     public News(String title, String description, String content, String image) {
         this.title = title;
         this.description = description;

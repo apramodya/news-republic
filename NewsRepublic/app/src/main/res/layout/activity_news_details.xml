@@ -21,26 +21,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/detailsViewTitleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="Title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/detailsViewImageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxHeight="300dp"
+                android:layout_margin="10dp"
+                android:maxHeight="450dp"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:textAlignment="center"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/detailsViewDescriptionTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="Description" />
 
         </LinearLayout>
     </ScrollView>
